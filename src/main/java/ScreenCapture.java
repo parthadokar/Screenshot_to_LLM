@@ -1,13 +1,12 @@
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class ScreenCapture {
-    public static void capture() throws AWTException, IOException {
+    public static BufferedImage capture() throws AWTException, IOException {
         Rectangle screenRectangle = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-        BufferedImage capturedImage = new Robot().createScreenCapture(screenRectangle);
-        ImageIO.write(capturedImage, "png", new File("screenshot.png"));
+        Robot robot = new Robot();
+        BufferedImage screenCapture = robot.createScreenCapture(screenRectangle);
+        return screenCapture;
     }
 }
