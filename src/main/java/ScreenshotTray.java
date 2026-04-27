@@ -10,9 +10,7 @@ public class ScreenshotTray {
             button.addActionListener(e -> {
                 try {
                     ScreenCapture.capture();
-                } catch (AWTException ex) {
-                    throw new RuntimeException(ex);
-                } catch (IOException ex) {
+                } catch (AWTException | IOException ex) {
                     throw new RuntimeException(ex);
                 }
             });
